@@ -1,0 +1,9 @@
+total reads	68
+total base pairs	277469
+mean	4080.43
+median	3846
+min	202
+max	10573
+N25	6415
+N50	5414
+N75	3675

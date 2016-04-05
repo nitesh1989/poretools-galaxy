@@ -1,0 +1,55 @@
+<tool id="poretools_fastq" name="Extract FASTQ sequences from a set of FAST5 files" version="0.1.0">
+    <macros>
+        <import>macros.xml</import>
+    </macros>
+    <expand macro="requirements" />
+    <expand macro="stdio" />
+    <command><![CDATA[
+        poretools fastq test_data/"$input1" > "$output1"
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="fast5" />
+    </inputs>
+    <outputs>
+        <data name="output1" format="data" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="2016_3_4_3507_1_ch13_read1414_strand.fast5"/>
+            <output name="output1" file="2016_3_4_3507_1_ch13_read1414_strand.fastq"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        usage: poretools [-h] [-v]
+                 
+                 {tabular,stats,squiggle,fastq,winner,nucdist,occupancy,qualdist,hist,combine,yield_plot,fasta,times,readstats,events}
+                 ...
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         Installed poretools version
+
+[sub-commands]:
+  {tabular,stats,squiggle,fastq,winner,nucdist,occupancy,qualdist,hist,combine,yield_plot,fasta,times,readstats,events}
+    combine             Combine a set of FAST5 files in a TAR achive
+    fastq               Extract FASTQ sequences from a set of FAST5 files
+    fasta               Extract FASTA sequences from a set of FAST5 files
+    stats               Get read size stats for a set of FAST5 files
+    hist                Plot read size histogram for a set of FAST5 files
+    events              Extract each nanopore event for each read.
+    readstats           Extract signal information for each read over time.
+    tabular             Extract the lengths and name/seq/quals from a set of
+                        FAST5 files in TAB delimited format
+    nucdist             Get the nucl. composition of a set of FAST5 files
+    qualdist            Get the qual score composition of a set of FAST5 files
+    winner              Get the longest read from a set of FAST5 files
+    squiggle            Plot the observed signals for FAST5 reads.
+    times               Return the start times from a set of FAST5 files in
+                        tabular format
+    yield_plot          Plot the yield over time for a set of FAST5 files
+    occupancy           Inspect pore activity over time for a set of FAST5
+                        files
+
+    ]]></help>
+    <expand macro="citations" />
+</tool>
